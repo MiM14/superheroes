@@ -7,4 +7,3 @@ data class Biography(val fullName:String, val alterEgo:String, val aliases:List<
 data class Work(val occupation:String, val base:String)
 data class Connections(val groupAffiliation:String, val relative:String)
 data class Images(val xs:String, val sm:String, val md:String, val lg:String)
-
