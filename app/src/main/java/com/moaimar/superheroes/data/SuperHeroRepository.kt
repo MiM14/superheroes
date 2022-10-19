@@ -8,7 +8,7 @@ class SuperHeroRepository(private val localSource : SuperHeroLocalDataSource,
                           private val remoteSource: SuperHeroRemoteDataSource
 ) {
 
-    fun createUsers(): List<SuperHeroApiModel>{
+    fun createSuperHeroes(): List<SuperHeroApiModel>{
 
 
         var superHeroes = localSource.getSuperHeroes()
@@ -19,5 +19,10 @@ class SuperHeroRepository(private val localSource : SuperHeroLocalDataSource,
         return superHeroes
 
     }
+
+    fun findSuperHeroById(SuperHeroId:Int){
+        localSource.findById(SuperHeroId)
+    }
+
 
 }

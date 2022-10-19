@@ -15,11 +15,9 @@ class SuperHeroLocalDataSource(private val sharedPref: SharedPreferences) {
         }
 
     }
-
     private fun saveSuperHero(superHero: SuperHeroApiModel){
-        val jsonUser = gson.toJson(superHero, SuperHeroApiModel::class.java)
-        val editor = sharedPref.edit()
-        editor.putString(superHero.id.toString(),jsonUser)
+        val jsonSuperHero = gson.toJson(superHero, SuperHeroApiModel::class.java)
+        editor.putString(superHero.id.toString(),jsonSuperHero)
         editor.apply()
     }
     fun getSuperHeroes(): List<SuperHeroApiModel>{
@@ -27,10 +25,16 @@ class SuperHeroLocalDataSource(private val sharedPref: SharedPreferences) {
         var superHeroList = mutableListOf<SuperHeroApiModel>()
 
         sharedPref.all.forEach{
-            val user = gson.fromJson(it.value as String, SuperHeroApiModel::class.java)
-            superHeroList.add(user)
+            val superHero = gson.fromJson(it.value as String, SuperHeroApiModel::class.java)
+            superHeroList.add(superHero)
         }
         return superHeroList
 
     }
+
+    fun findById(superHeroId:Int): SuperHeroApiModel? {
+        val jsonSuperHero = sharedPref.getString(superHeroId.toString(),null)
+        return gson.fromJson(jsonSuperHero, SuperHeroApiModel::class.java)
+    }
+
 }
