@@ -2,11 +2,13 @@ package com.moaimar.superheroes.data.local
 
 import android.content.SharedPreferences
 import com.google.gson.Gson
+import com.moaimar.app.commons.KSerializer
 import com.moaimar.superheroes.data.remote.models.SuperHeroApiModel
 import com.moaimar.superheroes.domain.SuperHero
 
-class SuperHeroLocalDataSource(private val sharedPref: SharedPreferences) {
-    private val gson = Gson()
+class SuperHeroLocalDataSource(private val sharedPref: SharedPreferences,
+                               private val jSerializer: KSerializer) {
+
     private val editor = sharedPref.edit()
 
     fun saveSuperHeroes(superHeroes: List<SuperHero>) {
@@ -17,7 +19,7 @@ class SuperHeroLocalDataSource(private val sharedPref: SharedPreferences) {
     }
 
     private fun saveSuperHero(superHero: SuperHero) {
-        val jsonSuperHero = gson.toJson(superHero, SuperHero::class.java)
+        val jsonSuperHero = jSerializer.toJson(superHero, SuperHero::class.java)
         editor.putString(superHero.id.toString(), jsonSuperHero)
         editor.apply()
     }
@@ -27,7 +29,7 @@ class SuperHeroLocalDataSource(private val sharedPref: SharedPreferences) {
         var superHeroList = mutableListOf<SuperHero>()
 
         sharedPref.all.forEach {
-            val superHero = gson.fromJson(it.value as String, SuperHero::class.java)
+            val superHero = jSerializer.fromJson(it.value as String, SuperHero::class.java)
             superHeroList.add(superHero)
         }
         return superHeroList
@@ -35,8 +37,9 @@ class SuperHeroLocalDataSource(private val sharedPref: SharedPreferences) {
     }
 
     fun findById(superHeroId: Int): SuperHeroApiModel? {
-        val jsonSuperHero = sharedPref.getString(superHeroId.toString(), null)
-        return gson.fromJson(jsonSuperHero, SuperHeroApiModel::class.java)
+        return  sharedPref.getString(superHeroId.toString(), null)?.let{
+        jSerializer.fromJson(it, SuperHeroApiModel::class.java)
+        }
     }
 
 }
