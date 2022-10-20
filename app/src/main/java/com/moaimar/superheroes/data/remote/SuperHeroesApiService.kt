@@ -6,8 +6,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class SuperHeroesApiService {
     private val urlEndPoint = "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/"
-
     private var apiEndPoints: SuperHeroesEndPoints
+
     init {
         apiEndPoints =buildApiEndPoint()
     }
@@ -22,6 +22,7 @@ class SuperHeroesApiService {
     private fun buildApiEndPoint() : SuperHeroesEndPoints{
         return buildClient().create(SuperHeroesEndPoints::class.java)
     }
+
     fun getSuperHeroesApi(): List<SuperHeroApiModel>{
         val callSuperHeroes = apiEndPoints.getSuperHeroes()
         val response = callSuperHeroes.execute()

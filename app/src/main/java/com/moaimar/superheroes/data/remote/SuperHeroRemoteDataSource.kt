@@ -1,12 +1,13 @@
 package com.moaimar.superheroes.data.remote
 
-import com.moaimar.superheroes.data.remote.models.SuperHeroApiModel
+
+import com.moaimar.superheroes.domain.SuperHero
 
 class SuperHeroRemoteDataSource {
     private val apiClient = SuperHeroesApiService()
 
-    fun getSuperHeroes(): List<SuperHeroApiModel> {
-        return apiClient.getSuperHeroesApi()
+    fun getSuperHeroes(): List<SuperHero> = apiClient.getSuperHeroesApi().map{
+        it.toDomain()
     }
 
 

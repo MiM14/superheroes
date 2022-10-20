@@ -8,32 +8,34 @@ import com.moaimar.superheroes.domain.SuperHero
 class SuperHeroLocalDataSource(private val sharedPref: SharedPreferences) {
     private val gson = Gson()
     private val editor = sharedPref.edit()
-    fun saveSuperHeroes(superHeroes: List<SuperHeroApiModel>){
 
-        superHeroes.forEach{
+    fun saveSuperHeroes(superHeroes: List<SuperHero>) {
+        superHeroes.forEach {
+
             saveSuperHero(it)
         }
-
     }
-    private fun saveSuperHero(superHero: SuperHeroApiModel){
-        val jsonSuperHero = gson.toJson(superHero, SuperHeroApiModel::class.java)
-        editor.putString(superHero.id.toString(),jsonSuperHero)
+
+    private fun saveSuperHero(superHero: SuperHero) {
+        val jsonSuperHero = gson.toJson(superHero, SuperHero::class.java)
+        editor.putString(superHero.id.toString(), jsonSuperHero)
         editor.apply()
     }
-    fun getSuperHeroes(): List<SuperHeroApiModel>{
 
-        var superHeroList = mutableListOf<SuperHeroApiModel>()
+    fun getSuperHeroes(): List<SuperHero> {
 
-        sharedPref.all.forEach{
-            val superHero = gson.fromJson(it.value as String, SuperHeroApiModel::class.java)
+        var superHeroList = mutableListOf<SuperHero>()
+
+        sharedPref.all.forEach {
+            val superHero = gson.fromJson(it.value as String, SuperHero::class.java)
             superHeroList.add(superHero)
         }
         return superHeroList
 
     }
 
-    fun findById(superHeroId:Int): SuperHeroApiModel? {
-        val jsonSuperHero = sharedPref.getString(superHeroId.toString(),null)
+    fun findById(superHeroId: Int): SuperHeroApiModel? {
+        val jsonSuperHero = sharedPref.getString(superHeroId.toString(), null)
         return gson.fromJson(jsonSuperHero, SuperHeroApiModel::class.java)
     }
 
