@@ -1,6 +1,6 @@
 package com.moaimar.superheroes.domain
 
-class WorkRepository{
+interface WorkRepository{
     fun getWork(superHero: SuperHero): Work {
         return superHero.work
     }
