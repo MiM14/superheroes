@@ -13,10 +13,14 @@ class SuperHeroRepository(private val localSource : SuperHeroLocalDataSource,
             localSource.saveSuperHeroes(superHeroes)
         }
         return superHeroes
-
     }
 
-    fun findSuperHeroById(SuperHeroId:Int){
-        localSource.findById(SuperHeroId)
+    fun findSuperHeroById(superHeroId:Int): SuperHero{
+        var superHero = localSource.findById(superHeroId)
+        if (superHero==null){
+            superHero = remoteSource.getSuperHero(superHeroId)
+            localSource.saveSuperHero(superHero)
+        }
+        return superHero
     }
 }

@@ -33,4 +33,14 @@ class SuperHeroesApiService {
             emptyList()
         }
     }
+    fun getSuperHero(superHeroId: Int): SuperHeroApiModel?{
+        val callUsers = apiEndPoints.getSuperHero(superHeroId)
+        val response = callUsers.execute()
+
+        return if(response.isSuccessful){
+            response.body()
+        }else{
+            null
+        }
+    }
 }

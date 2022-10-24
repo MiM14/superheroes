@@ -10,5 +10,5 @@ class SuperHeroRemoteDataSource {
         it.toDomain()
     }
 
-
+    fun getSuperHero(superHeroId: Int): SuperHero = apiClient.getSuperHero(superHeroId)!!.toDomain()
 }
