@@ -4,6 +4,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/both_spacing"
     tools:context=".presentation.SuperHeroDetailActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/big_image_size"
+        android:id="@+id/image"
+        android:src="@drawable/ic_spider_template"
+        app:layout_constraintBaseline_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        tools:text="Spider-Man"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/title_size"
+        android:layout_margin="@dimen/margin_size"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/alignment"
+        tools:text="GOOD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        android:textColor="@color/teal_200"
+        android:textSize="@dimen/title_size"
+        android:layout_margin="@dimen/margin_size"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/full_name"
+        tools:text="Peter Paker"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        android:textSize="@dimen/text_size"
+        android:layout_marginTop="@dimen/both_spacing"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/groupAffiliation"
+        tools:text="Member of the Avengers, formerly member of Outlaws, alternate Fantastic Four"
+        app:layout_constraintStart_toStartOf="@id/full_name"
+        app:layout_constraintTop_toBottomOf="@+id/full_name"
+        android:textSize="@dimen/text_size"
+        android:layout_marginTop="@dimen/margin_size"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stats"
+        app:layout_constraintTop_toBottomOf="@id/groupAffiliation"
+        android:layout_marginTop="@dimen/both_spacing">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/label_1"
+            tools:text="Inteligencia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="@dimen/margin_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/intelligence"
+            app:layout_constraintStart_toStartOf="@+id/label_1"
+            app:layout_constraintEnd_toEndOf="@id/label_1"
+            app:layout_constraintTop_toBottomOf="@id/label_1"
+            tools:text="10"
+            android:layout_marginTop="@dimen/margin_size" />
+
+        <View
+            android:layout_width="@dimen/line_width"
+            android:layout_height="@dimen/line_height"
+            android:id="@+id/line1"
+            android:background="@color/black"
+            app:layout_constraintStart_toEndOf="@id/label_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/horizontal_spacing"
+            android:layout_marginEnd="@dimen/horizontal_spacing"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/label_2"
+            tools:text="Velocidad"
+            app:layout_constraintStart_toStartOf="@id/line1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/horizontal_spacing"
+            android:layout_marginTop="@dimen/margin_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/speed"
+            tools:text="12"
+            app:layout_constraintStart_toStartOf="@+id/label_2"
+            app:layout_constraintEnd_toEndOf="@id/label_2"
+            app:layout_constraintTop_toBottomOf="@id/label_2"
+            android:layout_marginTop="@dimen/margin_size" />
+
+        <View
+            android:layout_width="@dimen/line_width"
+            android:layout_height="@dimen/line_height"
+            android:id="@+id/line2"
+            android:background="@color/black"
+            app:layout_constraintStart_toEndOf="@id/label_2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/horizontal_spacing"
+            android:layout_marginEnd="@dimen/horizontal_spacing"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/label_3"
+            tools:text="Combate"
+            app:layout_constraintStart_toStartOf="@id/line2"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/horizontal_spacing"
+            android:layout_marginTop="@dimen/margin_size" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/combat"
+            tools:text="15"
+            app:layout_constraintStart_toStartOf="@+id/label_3"
+            app:layout_constraintEnd_toEndOf="@id/label_3"
+            app:layout_constraintTop_toBottomOf="@id/label_3"
+            android:layout_marginTop="@dimen/margin_size" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_superheroes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/margin_size"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/prueba"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stats" />
 </androidx.constraintlayout.widget.ConstraintLayout>

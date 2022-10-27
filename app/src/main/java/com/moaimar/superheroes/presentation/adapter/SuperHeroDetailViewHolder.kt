@@ -5,9 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.moaimar.app.extensions.loadUrl
 import com.moaimar.superheroes.databinding.ViewItemSuperheroBinding
 import com.moaimar.superheroes.domain.SuperHero
-import com.moaimar.superheroes.presentation.SuperHeroDetailActivity
 
-class  SuperHeroViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class SuperHeroDetailViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private var binding: ViewItemSuperheroBinding? = null
     fun render(model: SuperHero) {
         binding = ViewItemSuperheroBinding.bind(view)
@@ -16,14 +15,6 @@ class  SuperHeroViewHolder(private val view: View) : RecyclerView.ViewHolder(vie
             name.text = model.name
             realName.text = model.id.toString()
             occupation.text = model.work.occupation.toString()
-        }
-        view.setOnClickListener {
-            view.context.startActivity(
-                SuperHeroDetailActivity.createIntent(
-                    view.context,
-                    model.id
-                )
-            )
         }
     }
 }
