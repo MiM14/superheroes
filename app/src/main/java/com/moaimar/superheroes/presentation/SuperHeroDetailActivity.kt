@@ -11,7 +11,10 @@ class SuperHeroDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_superheroedetail)
     }
-    fun createIntent(context: Context, superHeroId: Int): Intent {
-        return Intent(context, SuperHeroDetailActivity::class.java)
+    companion object {
+        fun createIntent(context: Context, superHeroId: Int): Intent {
+
+            return Intent(context, SuperHeroDetailActivity::class.java)
+        }
     }
 }
