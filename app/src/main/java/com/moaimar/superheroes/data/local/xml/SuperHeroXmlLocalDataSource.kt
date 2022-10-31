@@ -1,13 +1,12 @@
-package com.moaimar.superheroes.data.local
+package com.moaimar.superheroes.data.local.xml
 
 import android.content.SharedPreferences
-import com.google.gson.Gson
 import com.moaimar.app.commons.KSerializer
-import com.moaimar.superheroes.data.remote.models.SuperHeroApiModel
+import com.moaimar.superheroes.data.local.SuperHeroesLocalSource
 import com.moaimar.superheroes.domain.SuperHero
 
-class SuperHeroLocalDataSource(val sharedPref: SharedPreferences,
-                                val jSerializer: KSerializer): SuperHeroesLocalSource{
+class SuperHeroXmlLocalDataSource(val sharedPref: SharedPreferences,
+                                  val jSerializer: KSerializer): SuperHeroesLocalSource {
 
     private val editor = sharedPref.edit()
 

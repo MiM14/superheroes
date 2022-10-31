@@ -1,10 +1,10 @@
 package com.moaimar.superheroes.data
 
-import com.moaimar.superheroes.data.local.SuperHeroLocalDataSource
+import com.moaimar.superheroes.data.local.xml.SuperHeroXmlLocalDataSource
 import com.moaimar.superheroes.data.remote.SuperHeroRemoteDataSource
 import com.moaimar.superheroes.domain.SuperHero
 
-class SuperHeroRepository(private val localSource : SuperHeroLocalDataSource,
+class SuperHeroRepository(private val localSource : SuperHeroXmlLocalDataSource,
                           private val remoteSource: SuperHeroRemoteDataSource) {
     fun createSuperHeroes(): List<SuperHero>{
         var superHeroes = localSource.getSuperHeroes()
