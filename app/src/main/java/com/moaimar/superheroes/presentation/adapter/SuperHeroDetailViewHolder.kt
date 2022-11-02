@@ -8,10 +8,10 @@ import com.moaimar.superheroes.domain.Images
 
 class SuperHeroDetailViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     private var binding: ViewItemSuperherodetailBinding? = null
-    fun render(images: Images) {
+    fun render(image: Images) {
         binding = ViewItemSuperherodetailBinding.bind(view)
         binding?.apply {
-
+            //DetailImage.loadUrl(image)
         }
     }
 }

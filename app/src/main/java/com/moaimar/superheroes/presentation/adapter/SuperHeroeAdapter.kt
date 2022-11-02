@@ -13,6 +13,7 @@ class SuperHeroAdapter : RecyclerView.Adapter<SuperHeroViewHolder>() {
     fun loadList(superHeroes: List<SuperHero>) {
         dataSet.clear()
         dataSet.addAll(superHeroes)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroViewHolder {

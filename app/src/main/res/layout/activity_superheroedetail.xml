@@ -55,6 +55,7 @@
         tools:text="Member of the Avengers, formerly member of Outlaws, alternate Fantastic Four"
         app:layout_constraintStart_toStartOf="@id/full_name"
         app:layout_constraintTop_toBottomOf="@+id/full_name"
+        android:ellipsize="end"
         android:textSize="@dimen/text_size"
         android:layout_marginTop="@dimen/margin_size"
         />

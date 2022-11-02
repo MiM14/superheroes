@@ -19,7 +19,7 @@ class  SuperHeroViewHolder(private val view: View) : RecyclerView.ViewHolder(vie
         }
         view.setOnClickListener {
             view.context.startActivity(
-                SuperHeroDetailActivity.createIntent(
+                SuperHeroDetailActivity.getIntent(
                     view.context,
                     model.id
                 )

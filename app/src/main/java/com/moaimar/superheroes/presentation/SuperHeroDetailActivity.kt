@@ -38,8 +38,8 @@ class SuperHeroDetailActivity : AppCompatActivity() {
         val superHeroId = intent.extras?.getInt(SUPERHERO_ID)!!
         detailViewModel?.obtainSuperHero(object : SuperHeroDetailCallback {
             override fun onCall(superHero:SuperHero) {
-                bind(superHero)
                 //updateList(superHero)
+                bind(superHero)
             }
         }, superHeroId)
     }
@@ -63,7 +63,7 @@ class SuperHeroDetailActivity : AppCompatActivity() {
 
     companion object {
         private const val SUPERHERO_ID = "SUPERHERO_ID"
-        fun createIntent(context: Context, superHeroId: Int)= Intent(context, SuperHeroDetailActivity::class.java)
+        fun getIntent(context: Context, superHeroId: Int)= Intent(context, SuperHeroDetailActivity::class.java)
             .putExtra(SUPERHERO_ID, superHeroId)
     }
 }
