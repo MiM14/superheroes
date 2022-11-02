@@ -12,9 +12,9 @@ class  SuperHeroViewHolder(private val view: View) : RecyclerView.ViewHolder(vie
     fun render(model: SuperHero) {
         binding = ViewItemSuperheroBinding.bind(view)
         binding?.apply {
-            image.loadUrl(model.images.xs)
+            image.loadUrl(model.images.md)
             name.text = model.name
-            realName.text = model.id.toString()
+            realName.text = model.biography.fullName.toString()
             occupation.text = model.work.occupation.toString()
         }
         view.setOnClickListener {

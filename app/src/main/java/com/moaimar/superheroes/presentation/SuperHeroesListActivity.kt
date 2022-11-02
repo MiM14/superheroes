@@ -1,10 +1,8 @@
 package com.moaimar.superheroes.presentation
-import android.content.Context
-import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.moaimar.superheroes.R
 import com.moaimar.superheroes.domain.SuperHero
 import com.moaimar.superheroes.databinding.ActivitySuperheroeslistBinding
 import com.moaimar.superheroes.presentation.adapter.SuperHeroAdapter
@@ -16,8 +14,7 @@ class SuperHeroesListActivity : AppCompatActivity() {
 
     private val viewModel by lazy {
         SuperHeroesFactory.getViewModel(
-            applicationContext,
-            getSharedPreferences("", MODE_PRIVATE)
+            getSharedPreferences("", MODE_PRIVATE),
         )
     }
 
@@ -40,7 +37,7 @@ class SuperHeroesListActivity : AppCompatActivity() {
     }
 
     private fun loadSuperHeroes() {
-        viewModel.obtainSuperHeroes(object : SuperHeroesCallback {
+        viewModel.obtainSuperHeroes(object : SuperHeroCallback {
             override fun onCall(superHeroes: List<SuperHero>) {
                 updateList(superHeroes)
             }

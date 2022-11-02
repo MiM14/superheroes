@@ -5,14 +5,14 @@ import com.moaimar.app.commons.KSerializer
 import com.moaimar.superheroes.data.local.SuperHeroesLocalSource
 import com.moaimar.superheroes.domain.SuperHero
 
-class SuperHeroXmlLocalDataSource(val sharedPref: SharedPreferences,
-                                  val jSerializer: KSerializer): SuperHeroesLocalSource {
+class SuperHeroXmlLocalDataSource(
+    private val sharedPref: SharedPreferences,
+    private val jSerializer: KSerializer): SuperHeroesLocalSource {
 
     private val editor = sharedPref.edit()
 
     override fun saveSuperHeroes(superHeroes: List<SuperHero>) {
         superHeroes.forEach {
-
             saveSuperHero(it)
         }
     }

@@ -5,10 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.moaimar.superheroes.domain.GetSuperHeroesFeedUseCase
 import kotlinx.coroutines.*
 
-class SuperHeroesViewModel(private val superHeroesFeedUseCase: GetSuperHeroesFeedUseCase) :
-    ViewModel() {
-
-    fun obtainSuperHeroes(callback: SuperHeroesCallback) {
+class SuperHeroesViewModel(private val superHeroesFeedUseCase: GetSuperHeroesFeedUseCase) : ViewModel() {
+    fun obtainSuperHeroes(callback: SuperHeroCallback) {
         viewModelScope.launch(Dispatchers.IO) {
             val superHeroes = superHeroesFeedUseCase.execute()
             withContext(Dispatchers.Main) {

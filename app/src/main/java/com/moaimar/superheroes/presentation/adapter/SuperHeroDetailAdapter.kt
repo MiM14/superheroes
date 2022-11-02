@@ -5,23 +5,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.moaimar.superheroes.R
-import com.moaimar.superheroes.domain.SuperHero
+import com.moaimar.superheroes.domain.Images
 
-class SuperHeroAdapter : RecyclerView.Adapter<SuperHeroViewHolder>() {
-    private val dataSet: MutableList<SuperHero> = mutableListOf()
+class SuperHeroDetailAdapter : RecyclerView.Adapter<SuperHeroDetailViewHolder>() {
+    private val dataSet: MutableList<Images> = mutableListOf()
 
-    fun loadList(superHeroes: List<SuperHero>) {
+    fun loadList(images: List<Images>) {
         dataSet.clear()
-        dataSet.addAll(superHeroes)
+        dataSet.addAll(images)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroDetailViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.view_item_superhero, parent, false)
-        return SuperHeroViewHolder(view)
+        return SuperHeroDetailViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: SuperHeroViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SuperHeroDetailViewHolder, position: Int) {
         holder.render(dataSet[position])
     }
 

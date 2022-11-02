@@ -9,6 +9,6 @@ interface SuperHeroesEndPoints {
     @GET("all.json")
     fun getSuperHeroes(): Call<List<SuperHeroApiModel>>
 
-    @GET("id/{superHeroId}")
+    @GET("id/{superHeroId}.json")
     fun getSuperHero(@Path("superHeroId")id : Int):Call<SuperHeroApiModel>
 }

@@ -1,7 +1,7 @@
 package com.moaimar.superheroes.domain
 
-class GetSuperHeroesFeedUseCase(private val repository: SuperHeroesRepository){
-    fun execute(): List<SuperHero> {
-        return repository.getSuperHeroes()
-    }
+import com.moaimar.superheroes.data.SuperHeroDataRepository
+
+class GetSuperHeroesFeedUseCase(private val repository: SuperHeroDataRepository){
+    fun execute() = repository.getSuperHeroes()
 }

@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="@dimen/big_image_size"
-        android:id="@+id/image"
+        android:id="@+id/main_image"
         android:src="@drawable/ic_spider_template"
         app:layout_constraintBaseline_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -21,7 +21,7 @@
         android:id="@+id/name"
         tools:text="Spider-Man"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/main_image"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="@dimen/title_size"
@@ -33,7 +33,7 @@
         android:id="@+id/alignment"
         tools:text="GOOD"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/main_image"
         android:textColor="@color/teal_200"
         android:textSize="@dimen/title_size"
         android:layout_margin="@dimen/margin_size"/>
@@ -70,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/label_1"
-            tools:text="Inteligencia"
+            android:text="@string/intelligence"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="30dp"
@@ -101,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/label_2"
-            tools:text="Velocidad"
+            android:text="@string/speed"
             app:layout_constraintStart_toStartOf="@id/line1"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="@dimen/horizontal_spacing"
@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/label_3"
-            tools:text="Combate"
+            android:text="@string/combat"
             app:layout_constraintStart_toStartOf="@id/line2"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="@dimen/horizontal_spacing"
@@ -149,13 +149,13 @@
             android:layout_marginTop="@dimen/margin_size" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_superheroes"
+        android:id="@+id/superheroes_listImages"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/margin_size"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/prueba"
+        tools:listitem="@layout/view_item_superherodetail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/stats" />
 </androidx.constraintlayout.widget.ConstraintLayout>
