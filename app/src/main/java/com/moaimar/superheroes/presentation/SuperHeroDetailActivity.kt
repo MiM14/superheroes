@@ -38,13 +38,14 @@ class SuperHeroDetailActivity : AppCompatActivity() {
         val superHeroId = intent.extras?.getInt(SUPERHERO_ID)!!
         detailViewModel?.obtainSuperHero(object : SuperHeroDetailCallback {
             override fun onCall(superHero:SuperHero) {
-                //updateList(superHero)
+                updateList(superHero)
                 bind(superHero)
             }
         }, superHeroId)
     }
+
     private fun updateList(superHero:SuperHero) {
-        val images = mutableListOf(superHero.images)
+        val images = mutableListOf(superHero.images.xs,superHero.images.sm,superHero.images.md,superHero.images.lg)
         superHeroAdapter.loadList(images)
     }
 

@@ -5,19 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.moaimar.superheroes.R
-import com.moaimar.superheroes.domain.Images
 
 class SuperHeroDetailAdapter : RecyclerView.Adapter<SuperHeroDetailViewHolder>() {
-    private val dataSet: MutableList<Images> = mutableListOf()
+    private val dataSet: MutableList<String> = mutableListOf()
 
-    fun loadList(images: List<Images>) {
+    fun loadList(images: List<String>) {
         dataSet.clear()
         dataSet.addAll(images)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroDetailViewHolder {
         val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.view_item_superhero, parent, false)
+            .inflate(R.layout.view_item_superherodetail,parent, false)
         return SuperHeroDetailViewHolder(view)
     }
 
