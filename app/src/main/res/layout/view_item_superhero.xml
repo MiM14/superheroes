@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.SuperHeroesListActivity"
+    android:layout_margin="@dimen/both_spacing">
+
+    <ImageView
+        android:id="@+id/image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/image_size"
+        android:layout_height="@dimen/image_size"
+        tools:src="@drawable/ic_spider_template"/>
+
+    <TextView
+        app:layout_constraintTop_toTopOf="@+id/image"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        tools:text="Spider-Man"
+        android:textSize="@dimen/text_size"
+        android:textColor="@color/black"/>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        android:id="@+id/real_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Peter Paker"
+        android:textColor="@color/black"/>
+
+    <TextView
+        app:layout_constraintBottom_toBottomOf="@id/image"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        android:id="@+id/occupation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Freelance, Photographer and Teacher"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@color/black"/>
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="@+id/image"
+        app:layout_constraintBottom_toBottomOf="@+id/image"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="32dp"
+        android:layout_height="@dimen/chevron_size"
+        tools:src="@drawable/ic_chevron_right"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
